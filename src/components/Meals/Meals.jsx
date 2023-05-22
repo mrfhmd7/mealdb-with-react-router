@@ -1,13 +1,18 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Meal from '../Meal/Meal';
 
 const Meals = () => {
      const meals = useLoaderData();
-     console.log(meals);
+     // console.log(meals);
      return (
-          <div>
+          <div className='grid grid-cols-4 gap-4 border'>
                {
-                    meals.categories.map(meal => console.log(meal))
+                    meals.categories.map(meal => <Meal
+                         key={meal.idCategory}
+                         meal = {meal}
+                    >
+                    </Meal>)
                }
           </div>
      );
