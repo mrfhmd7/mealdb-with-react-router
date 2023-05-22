@@ -6,7 +6,7 @@ const Meals = () => {
      const meals = useLoaderData();
      // console.log(meals);
      return (
-          <div className='grid grid-cols-4 gap-4 border'>
+          <div className='grid grid-cols-4 gap-4 border mt-4'>
                {
                     meals.categories.map(meal => <Meal
                          key={meal.idCategory}

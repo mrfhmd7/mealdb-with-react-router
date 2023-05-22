@@ -7,6 +7,7 @@ import Home from "./components/Home/Home.jsx";
 import ErrorHandle from "./components/ErrorHandle/ErrorHandle.jsx";
 import Meals from "./components/Meals/Meals.jsx";
 import MealDetails from "./components/MealDetails/MealDetails.jsx";
+import DefaultPage from "./components/DefaultPage/DefaultPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     element: <Home></Home>,
     errorElement: <ErrorHandle></ErrorHandle>,
     children: [
+      {
+        path: "/",
+        element: <DefaultPage></DefaultPage>,
+      },
       {
         path: "/meals",
         element: <Meals></Meals>,
@@ -23,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/meal/:mealName",
         element: <MealDetails></MealDetails>,
-        loader: ({params}) =>
+        loader: ({ params }) =>
           fetch(
             `https://www.themealdb.com/api/json/v1/1/search.php?s=${params.mealName}`
           ),
