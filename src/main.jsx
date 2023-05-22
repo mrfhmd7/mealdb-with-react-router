@@ -4,13 +4,15 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
+import ErrorHandle from "./components/ErrorHandle/ErrorHandle.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Home></Home>
-  }
-])
+    path: "/",
+    element: <Home></Home>,
+    errorElement: <ErrorHandle></ErrorHandle>
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
